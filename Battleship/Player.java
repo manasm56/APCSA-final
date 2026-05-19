@@ -1,6 +1,7 @@
 public class Player{
 private String name;
-private 
+private Gameship[] fleet;
+private boolean playerTurn;
 public Player(){
       
 }
