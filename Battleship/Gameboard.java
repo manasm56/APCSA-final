@@ -8,7 +8,7 @@ public class Gameboard{
             gBoard[i][g]="W"
         }
     }    
-    public boolean placeShip(int r, int c){
+    public boolean placement(int r, int c){
         if(r<0 || c<0 || c>=gBoard.length || r>=gBoard.length){
             return false;
         }
@@ -20,6 +20,19 @@ public class Gameboard{
             return true;
         }
     }
+    }
+    public boolean attacks(int r, int c){
+        if(gBoard[r][c]=='S'){
+            gBoard='x'
+            return true;
+        }
+        else if(gBoard[r][c]=='W'){
+            return false;
+        }
+        else{
+            return false
+            System.out.println("Your guess is out of bounds, try again next turn");
+        }
     }
 
 
