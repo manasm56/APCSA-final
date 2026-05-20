@@ -1,42 +1,41 @@
 public class Gameboard{
     private char[][] gBoard;
-
     public Gameboard(int gSize){
-    Gameboard = new char[gSize][gSize];
+    gBoard = new char[gSize][gSize];
     for(int i=0; i<gBoard.length; i++){
         for(int g=0; g<gBoard[0].length; g++){
-            gBoard[i][g]="W"
+            gBoard[i][g]='W';
         }
+    }
     }    
-    public boolean placement(int r, int c){
+    public boolean placeShip(int r, int c){
         if(r<0 || c<0 || c>=gBoard.length || r>=gBoard.length){
             return false;
         }
         else if(gBoard[r][c]=='S'){
-            return false
-        }
-        else{
-            gBoard[r][c]='s';
-            return true;
-        }
-    }
-    }
-    public boolean attacks(int r, int c){
-        if(gBoard[r][c]=='S'){
-            gBoard='X'
-            return true;
-        }
-        else if(gBoard[r][c]=='W'){
-            gBoard='O'
             return false;
         }
         else{
-            return false
-            System.out.println("Your guess is out of bounds, try again next turn");
+            gBoard[r][c]='S';
+            return true;
+        }
+    
+    }
+    public boolean attacks(int r, int c){
+        if(r<0 || c<0 || c>=gBoard.length || r>=gBoard.length){
+            return false;
+        }
+        else if(gBoard[r][c]=='S'){
+            gBoard[r][c]='X';
+            return true;
+        }
+        else{
+            gBoard[r][c]='O';
+            return false;
         }
     }
-    public boolean checkGuess(){
-        if(gBoard[r][c]=='X' || gBoard[r][c]=='O'){
+    public boolean checkGuess(int r, int c){
+        if(r<0 || c<0 || c>=gBoard.length || r>=gBoard.length || gBoard[r][c]=='X' || gBoard[r][c]=='O'){
             return true;
         }
         else{
@@ -54,7 +53,7 @@ public class Gameboard{
         }
         return false;
     }
-    public void print(boolean shipHide){
+    public void hide(boolean shipHide){
         for(int i=0; i<gBoard.length; i++){
             for(int j=0; j<gBoard.length; j++){
                 if(shipHide && gBoard[i][j]=='S'){
@@ -68,6 +67,7 @@ public class Gameboard{
         }
         System.out.println();
     }
+    
 
 
 
