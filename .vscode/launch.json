@@ -5,9 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "jdk",
-            "request": "launch",
-            "name": "Launch Java App"
+            "type": "java",
+  "name": "Debug Current File",
+  "request": "launch",
+  "mainClass": "${file}",
+  "console": "integratedTerminal"
         }
     ]
 }
